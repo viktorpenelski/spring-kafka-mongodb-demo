@@ -1,6 +1,6 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.4.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -10,14 +10,17 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.kafka:spring-kafka'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
-	testImplementation 'org.springframework.kafka:spring-kafka-test'
+    //TODO(vic): add mongodb back when work begins on the DB part
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.kafka:spring-kafka'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
+
 }
