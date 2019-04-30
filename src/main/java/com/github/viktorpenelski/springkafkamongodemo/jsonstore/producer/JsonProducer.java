@@ -13,6 +13,7 @@ public class JsonProducer {
 
     private static final Logger logger = LoggerFactory.getLogger(JsonProducer.class);
 
+    //TODO(vic) think about better typization. UUID key, JsonNode value?
     private KafkaTemplate<String, String> kafkaTemplate;
     private String topic;
     private MessageUUIDGenerator uuidGenerator;
