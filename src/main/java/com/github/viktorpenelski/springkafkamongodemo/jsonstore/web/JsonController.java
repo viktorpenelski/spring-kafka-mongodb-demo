@@ -21,7 +21,8 @@ public class JsonController {
     public ResponseEntity<JsonNode> enqueueJson(
             @Valid @RequestBody JsonNode body) {
 
-        return new ResponseEntity<>(body, HttpStatus.OK);
+        LOGGER.info("POST /enqueue called with payload: {}", body.toString());
+        return new ResponseEntity<>(body, HttpStatus.ACCEPTED);
     }
 
     @GetMapping()
