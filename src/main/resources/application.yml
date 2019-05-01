@@ -8,10 +8,10 @@ spring:
       default-page-size: 10000
       max-page-size: 2147483647
     mongodb:
-      uri: mongodb://localhost:27017/jsonstore
+      uri: mongodb://${MONGODB_URL:localhost}:${MONGODB_PORT:27017}/jsonstore
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_URL:localhost}:${KAFKA_BOOTSTRAP_PORT:9092}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
