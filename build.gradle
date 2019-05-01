@@ -14,13 +14,25 @@ repositories {
 }
 
 dependencies {
-    //TODO(vic): add mongodb back when work begins on the DB part
+
+    // WEB
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // MongoDB
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+
+    // https://mvnrepository.com/artifact/cz.jirutka.spring/embedmongo-spring
+    implementation group: 'cz.jirutka.spring', name: 'embedmongo-spring', version: '1.3.1'
+
+
+    // Kafka
     implementation 'org.springframework.kafka:spring-kafka'
+
+    /* TEST DEPENDENCIES */
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
-
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
 
 }

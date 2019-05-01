@@ -1,10 +1,10 @@
 package com.github.viktorpenelski.springkafkamongodemo.jsonstore.consumer;
 
+import com.github.viktorpenelski.springkafkamongodemo.jsonstore.JsonstoreRepository;
+import com.github.viktorpenelski.springkafkamongodemo.jsonstore.model.JsonstoreRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.support.KafkaHeaders;
-import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,13 +12,17 @@ public class JsonConsumer {
 
     private final Logger logger = LoggerFactory.getLogger(JsonConsumer.class);
 
-    //TODO(vic) typization
-    @KafkaListener(topics = "${jsonstore.topic:jsonstore}")
-    public void consume(
-            @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY)
-                    String key,
-            String message) {
+    private JsonstoreRepository repository;
 
-        logger.info("Consumed key: {}, body: {}", key, message);
+    public JsonConsumer(JsonstoreRepository repository) {
+        this.repository = repository;
+    }
+
+    @KafkaListener(topics = "${jsonstore.kafka.topic}")
+    public void consume(JsonstoreRecord message) {
+
+        repository.save(message);
+        logger.info("Successfully persisted: {}", message);
+
     }
 }
