@@ -49,3 +49,10 @@ docker {
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }
+
+// Print the test result as gradle test task is being ran
+test {
+    afterTest { desc, result ->
+        logger.quiet "Test ${desc.name} [${desc.className}] completed with result: ${result.resultType}"
+    }
+}

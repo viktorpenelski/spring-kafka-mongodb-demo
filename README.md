@@ -7,6 +7,11 @@ Springboot's embedded Tomcat is used to serve REST endpoints.
 
 # Run locally
 
+Dependencies:
+- docker
+- docker-compose
+- java11
+
 In order to run this project locally with all of its dependencies in docker, 
 first build the artifact and then use the provided docker-compose.yml:
 
@@ -21,6 +26,11 @@ and bring it up along all of the dependencies (zoo, kafka, mongo)
 ---
 
 # Dev locally
+
+Dependencies:
+- docker
+- docker-compose
+- java11
 
 In order to run only the dependencies (zoo, kafka, mongo) in docker, while
 developing the app, you can use the alternative docker-compose:
