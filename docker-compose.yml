@@ -49,8 +49,7 @@ services:
     - 8080:8080
     environment:
       - MONGODB_URL=mongodb
-      - KAFKA_BOOTSTRAP_URL=kafka1
-      - KAFKA_BOOTSTRAP_PORT=19092
+      - KAFKA_BOOTSTRAP_SERVERS=kafka1:19092
     depends_on:
       - zoo1
       - kafka1

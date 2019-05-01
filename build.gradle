@@ -56,5 +56,4 @@ docker {
     name "${project.group}/${rootProject.name}"
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
-    logger.quiet("build.gradle - docker: building image: ${name}")
 }

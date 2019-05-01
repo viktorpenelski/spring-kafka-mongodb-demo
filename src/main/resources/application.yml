@@ -1,6 +1,6 @@
 jsonstore:
   kafka:
-    topic: json-test
+    topic: jsonstore
 
 spring:
   data:
@@ -11,7 +11,7 @@ spring:
       uri: mongodb://${MONGODB_URL:localhost}:${MONGODB_PORT:27017}/jsonstore
 
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_URL:localhost}:${KAFKA_BOOTSTRAP_PORT:9092}
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

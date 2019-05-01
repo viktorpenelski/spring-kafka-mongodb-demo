@@ -190,6 +190,17 @@ Response:
 
 ---
 
+### Environment variables:
+
+| variable | default | description |
+|---|---|---|
+| `MONGODB_URL` | localhost | url of the mongo db instance to connect to|
+| `MONGODB_PORT` | 27017 | port of the mongodb instace to connect to|
+| `KAFKA_BOOTSTRAP_SERVERS` | localhost:9092 | comma-separated list of host and port pairs that are the addresses of Kafka brokers|
+
+
+---
+
 ### Potential improvements:
 
 - Implement a dead letter queue for messages that were not stored
