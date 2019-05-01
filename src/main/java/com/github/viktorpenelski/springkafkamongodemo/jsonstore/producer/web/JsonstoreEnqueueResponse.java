@@ -1,4 +1,4 @@
-package com.github.viktorpenelski.springkafkamongodemo.jsonstore.web;
+package com.github.viktorpenelski.springkafkamongodemo.jsonstore.producer.web;
 
 import java.util.UUID;
 

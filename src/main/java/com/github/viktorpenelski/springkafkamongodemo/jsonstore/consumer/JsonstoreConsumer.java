@@ -1,6 +1,6 @@
 package com.github.viktorpenelski.springkafkamongodemo.jsonstore.consumer;
 
-import com.github.viktorpenelski.springkafkamongodemo.jsonstore.web.JsonstoreRepository;
+import com.github.viktorpenelski.springkafkamongodemo.jsonstore.consumer.web.JsonstoreRepository;
 import com.github.viktorpenelski.springkafkamongodemo.jsonstore.model.JsonstoreRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

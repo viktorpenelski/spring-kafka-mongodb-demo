@@ -3,6 +3,7 @@ package com.github.viktorpenelski.springkafkamongodemo.jsonstore.web;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.viktorpenelski.springkafkamongodemo.jsonstore.producer.JsonstoreProducer;
+import com.github.viktorpenelski.springkafkamongodemo.jsonstore.producer.web.JsonstoreController;
 import org.junit.Test;
 import org.mockito.Mockito;
 

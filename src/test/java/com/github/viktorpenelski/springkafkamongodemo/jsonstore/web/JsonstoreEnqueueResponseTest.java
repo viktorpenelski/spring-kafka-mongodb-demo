@@ -1,6 +1,7 @@
 package com.github.viktorpenelski.springkafkamongodemo.jsonstore.web;
 
 
+import com.github.viktorpenelski.springkafkamongodemo.jsonstore.producer.web.JsonstoreEnqueueResponse;
 import org.junit.Test;
 
 import java.util.UUID;

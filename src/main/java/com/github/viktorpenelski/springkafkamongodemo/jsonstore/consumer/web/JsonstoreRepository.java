@@ -1,4 +1,4 @@
-package com.github.viktorpenelski.springkafkamongodemo.jsonstore.web;
+package com.github.viktorpenelski.springkafkamongodemo.jsonstore.consumer.web;
 
 import com.github.viktorpenelski.springkafkamongodemo.jsonstore.model.JsonstoreRecord;
 import org.springframework.data.domain.Page;

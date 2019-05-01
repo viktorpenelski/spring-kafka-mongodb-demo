@@ -6,17 +6,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Bootstrap {
+public class KafkaBootstrap {
 
     private String topicName;
     private int numPartitions;
     private short replicationFactor;
 
-    public Bootstrap(@Value("${jsonstore.kafka.topic}")
+    public KafkaBootstrap(@Value("${jsonstore.kafka.topic}")
                              String topicName,
-                     @Value("${jsonstore.kafka.numPartitions:1}")
+                          @Value("${jsonstore.kafka.numPartitions:1}")
                              int numPartitions,
-                     @Value("${jsonstore.kafka.replicationFactor:1}")
+                          @Value("${jsonstore.kafka.replicationFactor:1}")
                              short replicationFactor) {
 
         this.topicName = topicName;
@@ -25,7 +25,7 @@ public class Bootstrap {
     }
 
     /**
-     * Initialize the jsonstore topic if it does not already exist.
+     * Initialize the jsonstore.kafka.topic topic in kafka if it does not already exist.
      */
     @Bean
     public NewTopic adviceTopic() {
