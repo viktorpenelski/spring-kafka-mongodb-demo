@@ -1,4 +1,4 @@
-version: '2.1'
+version: "3"
 
 services:
   zoo1:
@@ -31,3 +31,23 @@ services:
     - ./docker-data/kafka1/data:/var/lib/kafka/data
     depends_on:
     - zoo1
+
+  mongodb:
+    image: mongo:4.0.9
+    ports:
+    - 27017:27017
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./docker-data/db:/data/db
+    command: --smallfiles
+
+  mongo-client:
+    image: mongoclient/mongoclient
+    ports:
+    - 3030:3000
+    environment:
+    - MONGOCLIENT_DEFAULT_CONNECTION_URL=mongodb://mongo:27017
+    depends_on:
+    - mongodb

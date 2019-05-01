@@ -3,6 +3,10 @@ jsonstore:
     topic: json-test
 
 spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/jsonstore
+
   kafka:
     bootstrap-servers: localhost:9092
     producer:
