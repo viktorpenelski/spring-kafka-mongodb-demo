@@ -21,8 +21,12 @@ public class JsonstoreConsumer {
     @KafkaListener(topics = "${jsonstore.kafka.topic}")
     public void consume(JsonstoreRecord message) {
 
-        repository.save(message);
-        logger.info("Successfully persisted: {}", message);
+        try {
+            repository.save(message);
+            logger.info("Successfully persisted: {}", message);
+        } catch (Exception e) {
+            logger.error("Failed to persist message with id: {}", message.getId());
+        }
 
     }
 }

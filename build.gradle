@@ -39,6 +39,13 @@ dependencies {
 
 }
 
+// Print the test result as gradle test task is being ran
+test {
+    afterTest { desc, result ->
+        logger.quiet "Test ${desc.name} [${desc.className}] completed with result: ${result.resultType}"
+    }
+}
+
 task unpack(type: Copy) {
     dependsOn bootJar
     from(zipTree(tasks.bootJar.outputs.files.singleFile))
@@ -49,11 +56,5 @@ docker {
     name "${project.group}/${rootProject.name}"
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
-}
-
-// Print the test result as gradle test task is being ran
-test {
-    afterTest { desc, result ->
-        logger.quiet "Test ${desc.name} [${desc.className}] completed with result: ${result.resultType}"
-    }
+    logger.quiet("build.gradle - docker: building image: ${name}")
 }

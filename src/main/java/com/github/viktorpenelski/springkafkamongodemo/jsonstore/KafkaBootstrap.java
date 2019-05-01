@@ -28,7 +28,7 @@ public class KafkaBootstrap {
      * Initialize the jsonstore.kafka.topic topic in kafka if it does not already exist.
      */
     @Bean
-    public NewTopic adviceTopic() {
+    public NewTopic createJsonstoreTopic() {
         return new NewTopic(topicName, numPartitions, replicationFactor);
     }
 }
