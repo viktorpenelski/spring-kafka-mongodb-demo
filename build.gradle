@@ -44,6 +44,7 @@ task unpack(type: Copy) {
     from(zipTree(tasks.bootJar.outputs.files.singleFile))
     into("build/dependency")
 }
+
 docker {
     name "${project.group}/${rootProject.name}"
     copySpec.from(tasks.unpack.outputs).into("dependency")

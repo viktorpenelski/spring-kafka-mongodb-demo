@@ -5,6 +5,10 @@ The following project implements a simple data pipeline, utilizing SpringBoot, K
 Springboot's embedded Tomcat is used to serve REST endpoints.
 
 
+### Quick glance over the available flows:
+
+![](media/flows.jpg)
+
 # Run locally
 
 Dependencies:
@@ -21,7 +25,10 @@ docker-compose up
 ```
 
 this will create a local image `com.github.viktorpenelski/spring-kafka-mongo-demo`
-and bring it up along all of the dependencies (zoo, kafka, mongo)
+and bring it up along all of the dependencies (zoo, kafka, mongo).
+
+The service will be available on `localhost:8080`
+
 
 ---
 
@@ -177,6 +184,15 @@ Response:
     "number" : 0
   }
 ```
+
+---
+
+### Potential improvements:
+
+- Implement a dead letter queue for messages that were not stored
+- Add common error handling to have consistent messages.
+- Add common logging for each accepted request.
+- Аdd embedded kafka/mongo to allow for integration tests w/o dependencies
 
 ---
 
