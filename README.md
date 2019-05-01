@@ -136,10 +136,36 @@ Response:
   }
 ```
 
-# Dev setup
+# Run locally
 
-<!--TODO(vic)-->
+In order to run this project locally with all of its dependencies in docker, 
+first build the artifact and then use the provided docker-compose.yml:
 
+```
+./gradlew clean build docker
+docker-compose up
+```
+
+this will create a local image `com.github.viktorpenelski/spring-kafka-mongo-demo`
+and bring it up along all of the dependencies (zoo, kafka, mongo)
+
+---
+
+# Dev locally
+
+In order to run only the dependencies (zoo, kafka, mongo) in docker, while
+developing the app, you can use the alternative docker-compose:
+
+```
+docker-compose -f docker-compose-dependencies-only.yml up
+```
+
+After that you can run application from your IDE, or using:
+
+```
+./gradlew clean build
+java -jar build/libs/*.jar
+```
 ---
 
 ### Technologies used:
