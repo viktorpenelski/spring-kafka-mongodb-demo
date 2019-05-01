@@ -9,6 +9,9 @@ Springboot's embedded Tomcat is used to serve REST endpoints.
 
 ![](media/flows.jpg)
 
+*Generated using [draw.io](https://www.draw.io/), import [`media/skmd.drawio`](media/skmd.drawio) 
+in draw.io to modify*
+
 # Run locally
 
 Dependencies:
