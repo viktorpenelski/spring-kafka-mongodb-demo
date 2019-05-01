@@ -11,17 +11,17 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
-public class JsonProducer {
+public class JsonstoreProducer {
 
-    private static final Logger logger = LoggerFactory.getLogger(JsonProducer.class);
+    private static final Logger logger = LoggerFactory.getLogger(JsonstoreProducer.class);
 
     private KafkaTemplate<String, JsonstoreRecord> kafkaTemplate;
     private String topic;
     private MessageUUIDGenerator uuidGenerator;
 
-    public JsonProducer(KafkaTemplate<String, JsonstoreRecord> kafkaTemplate,
-                        @Value("${jsonstore.kafka.topic}") String kafkaTopic,
-                        MessageUUIDGenerator uuidGenerator) {
+    public JsonstoreProducer(KafkaTemplate<String, JsonstoreRecord> kafkaTemplate,
+                             @Value("${jsonstore.kafka.topic}") String kafkaTopic,
+                             MessageUUIDGenerator uuidGenerator) {
         this.kafkaTemplate = kafkaTemplate;
         this.topic = kafkaTopic;
         this.uuidGenerator = uuidGenerator;

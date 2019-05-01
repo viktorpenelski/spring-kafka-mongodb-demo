@@ -1,6 +1,6 @@
 package com.github.viktorpenelski.springkafkamongodemo.jsonstore.consumer;
 
-import com.github.viktorpenelski.springkafkamongodemo.jsonstore.JsonstoreRepository;
+import com.github.viktorpenelski.springkafkamongodemo.jsonstore.web.JsonstoreRepository;
 import com.github.viktorpenelski.springkafkamongodemo.jsonstore.model.JsonstoreRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,13 +8,13 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class JsonConsumer {
+public class JsonstoreConsumer {
 
-    private final Logger logger = LoggerFactory.getLogger(JsonConsumer.class);
+    private final Logger logger = LoggerFactory.getLogger(JsonstoreConsumer.class);
 
     private JsonstoreRepository repository;
 
-    public JsonConsumer(JsonstoreRepository repository) {
+    public JsonstoreConsumer(JsonstoreRepository repository) {
         this.repository = repository;
     }
 

@@ -4,6 +4,9 @@ jsonstore:
 
 spring:
   data:
+    rest:
+      default-page-size: 10000
+      max-page-size: 2147483647
     mongodb:
       uri: mongodb://localhost:27017/jsonstore
 
