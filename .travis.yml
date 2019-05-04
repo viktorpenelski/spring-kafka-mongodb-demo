@@ -3,5 +3,5 @@ jdk: oraclejdk11
 services:
   - docker
 before_script: ./gradlew clean build docker && docker-compose up -d
-script: ./gradlew integrationTest
+script: ./integr-test-waiting-for-app.sh
 after_script: docker-compose down
