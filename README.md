@@ -190,6 +190,32 @@ Response:
 
 ---
 
+### Integration tests
+
+The app contains an integration test suite. 
+
+Currently it attempts to:
+
+1. Create a resource via POST `/jsonstore/enqueue`
+    - fails on unreachable endpoint
+    - fails on status other than 202 Accepted
+2. Retrieve the resource via GET `/jsonstore/{id}`
+    - retries twice with timeout (in case the queue is slower than expected)
+    - fails if the resource created in 1. does not have a valid `.href` in the body
+    - fails if after N retries no 200 OK is received.
+
+
+In order to run integration tests, first make sure that an app is either deployed
+locally or running on a remote host with all of its dependencies available (in which case
+use env variable INTEGRATION_TEST_BASE_URL_PORT to direct the tests against it). 
+
+Execute using:
+```
+./gradlew integrationTest
+```
+
+---
+
 ### Environment variables:
 
 | variable | default | description |
@@ -197,7 +223,7 @@ Response:
 | `MONGODB_URL` | localhost | url of the mongo db instance to connect to|
 | `MONGODB_PORT` | 27017 | port of the mongodb instace to connect to|
 | `KAFKA_BOOTSTRAP_SERVERS` | localhost:9092 | comma-separated list of host and port pairs that are the addresses of Kafka brokers|
-
+| `INTEGRATION_TEST_BASE_URL_PORT` | http://127.0.0.1:8080 | Location to run acceptance tests against |
 
 ---
 
