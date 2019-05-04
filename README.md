@@ -1,5 +1,7 @@
 # Spring kafka mongodb - sample project
 
+![](https://travis-ci.com/viktorpenelski/spring-kafka-mongodb-demo.svg?branch=master)
+
 The following project implements a simple data pipeline, utilizing SpringBoot, Kafka and MongoDB.
 
 Springboot's embedded Tomcat is used to serve REST endpoints.
