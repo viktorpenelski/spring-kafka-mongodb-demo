@@ -7,10 +7,15 @@ buildscript {
 plugins {
     id 'org.springframework.boot' version '2.1.4.RELEASE'
     id 'java'
+    id 'org.unbroken-dome.test-sets' version '2.1.1'
 }
 
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.palantir.docker'
+
+testSets {
+    integrationTest
+}
 
 group = 'com.github.viktorpenelski'
 version = '0.0.1-SNAPSHOT'
@@ -32,10 +37,12 @@ dependencies {
     // Kafka
     implementation 'org.springframework.kafka:spring-kafka'
 
-    /* TEST DEPENDENCIES */
+    // Test dependencies
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+    integrationTestImplementation 'junit:junit:4.12'
 
 }
 
